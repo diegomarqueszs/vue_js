@@ -31,3 +31,9 @@
 
   };
 </script>
+
+<style scoped>
+  .card-body{
+    height: 300px;
+  }
+</style>

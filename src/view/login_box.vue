@@ -3,12 +3,11 @@
         <div class="project-rigth">
             <div class="project-name" >
                 <h1>PROJETO TRAINEE</h1>
-                <h3>Caso seja sua primeira vez aqui, clique <a href="#" class="link">aqui</a> para fazer</h3> 
+                <h3>Caso seja sua primeira vez aqui, clique <router-link to="/Pag404" class="link">aqui</router-link> para fazer</h3> 
                 <h3> o seu cadastro</h3>
                 
             </div>
         </div>
-
         <div class="container mt-5" id="form-login">
             <form @submit="handleSubmit" class="form-todo" form-group>
                 <h1 class="title">INICIAR SESSAO</h1>
@@ -30,7 +29,7 @@
                 </p>
 
                 
-                <a href="#">Esqueci minha senha</a>
+                <router-link to="/Pag404">Esqueci minha senha</router-link>
             </form>
             <div class="gif-container">
                 <img :src="showGif ? mario.gif : mario.img" class="mario-gif" />
@@ -70,9 +69,10 @@ export default{
                 this.showGif = true; // Atualiza a propriedade showGif para true
                 //this.$router.push('/home');
                 await new Promise(resolve => {
-                    setTimeout(resolve, 1750); // Defina o tempo de atraso em milissegundos (2 segundos no exemplo)
+                    setTimeout(resolve, 1600); // Espera 1.6 segundos
                 });
                 this.showGif = false;
+                this.$router.push('/home');
             }
         },
     },
@@ -107,7 +107,6 @@ input {
     padding: 15px;
 }
 .btn:hover{
-    /*verificar porque as bordas nao sao incluidas*/
     color:#FFA826;
     background-color: #1B2D50;
     border-radius: 5;
@@ -120,6 +119,7 @@ input {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    height: 100%;
 }
 
 .project-rigth{
@@ -166,7 +166,10 @@ input {
     margin-right: 8%;
     margin-left: 8%;
     width: 30vw;
+    height: 100%;
 }
+
+
 
 #form-login a{
     
@@ -214,14 +217,16 @@ input {
   z-index: -1; /*ver como alterar dinamicamente */
   
 }
+
+
 .mario-gif {
-  position:absolute ;
-  bottom: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  max-width: 100%;
-  height: auto;
+    position:absolute ;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    max-width: 100%;
 }
+
 </style>
 
